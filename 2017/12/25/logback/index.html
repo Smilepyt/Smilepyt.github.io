@@ -71,7 +71,7 @@
 
 
 
-  <meta name="keywords" content="post,get," />
+  <meta name="keywords" content="spring," />
 
 
 
@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="什么是 HTTP？  超文本传输协议（HTTP）的设计目的是保证客户机与服务器之间的通信。">
-<meta name="keywords" content="post,get">
+<meta name="description" content="简单学习 SLF4J+LogbackSLF4J简介 slf4j的全称是Simple Loging Facade For Java，即它仅仅是一个为Java程序提供日志输出的统一接口，并不是一个具体的日志实现方案，就比如JDBC一样，只是一种规则而已。所以单独的slf4j是不能工作的，必须搭配其他具体的日志实现方案。slf4j只是一种接口，它本身并不关心你底层使用的是什么日志实现方案，所以它支持各种">
+<meta name="keywords" content="spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Post和Get的区别">
-<meta property="og:url" content="http://yoursite.com/2017/12/11/postget/index.html">
+<meta property="og:title" content="Spring Boot日志管理">
+<meta property="og:url" content="http://yoursite.com/2017/12/25/logback/index.html">
 <meta property="og:site_name" content="怪你过分美丽">
-<meta property="og:description" content="什么是 HTTP？  超文本传输协议（HTTP）的设计目的是保证客户机与服务器之间的通信。">
+<meta property="og:description" content="简单学习 SLF4J+LogbackSLF4J简介 slf4j的全称是Simple Loging Facade For Java，即它仅仅是一个为Java程序提供日志输出的统一接口，并不是一个具体的日志实现方案，就比如JDBC一样，只是一种规则而已。所以单独的slf4j是不能工作的，必须搭配其他具体的日志实现方案。slf4j只是一种接口，它本身并不关心你底层使用的是什么日志实现方案，所以它支持各种">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-11T10:33:23.542Z">
+<meta property="og:updated_time" content="2017-12-25T15:14:53.835Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Post和Get的区别">
-<meta name="twitter:description" content="什么是 HTTP？  超文本传输协议（HTTP）的设计目的是保证客户机与服务器之间的通信。">
+<meta name="twitter:title" content="Spring Boot日志管理">
+<meta name="twitter:description" content="简单学习 SLF4J+LogbackSLF4J简介 slf4j的全称是Simple Loging Facade For Java，即它仅仅是一个为Java程序提供日志输出的统一接口，并不是一个具体的日志实现方案，就比如JDBC一样，只是一种规则而已。所以单独的slf4j是不能工作的，必须搭配其他具体的日志实现方案。slf4j只是一种接口，它本身并不关心你底层使用的是什么日志实现方案，所以它支持各种">
 
 
 
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/11/postget/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/25/logback/"/>
 
 
 
 
 
-  <title>Post和Get的区别 | 怪你过分美丽</title>
+  <title>Spring Boot日志管理 | 怪你过分美丽</title>
   
 
 
@@ -310,7 +310,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/11/postget/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/25/logback/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Smile丶">
@@ -327,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Post和Get的区别</h1>
+          <h1 class="post-title" itemprop="name headline">Spring Boot日志管理</h1>
         
 
         <div class="post-meta">
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-11T17:17:58+08:00">
-                2017-12-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-25T22:42:33+08:00">
+                2017-12-25
               </time>
             
 
@@ -362,8 +362,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web前端/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
+                  <a href="/categories/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
                   </a>
                 </span>
 
@@ -399,87 +399,25 @@
       
 
       
-        <h3 id="什么是-HTTP？"><a href="#什么是-HTTP？" class="headerlink" title="什么是 HTTP？"></a>什么是 HTTP？</h3><blockquote>
-<ul>
-<li>超文本传输协议（HTTP）的设计目的是保证客户机与服务器之间的通信。<a id="more"></a></li>
-<li>HTTP 的工作方式是客户机与服务器之间的请求-应答协议。</li>
-<li>web 浏览器可能是客户端，而计算机上的网络应用程序也可能作为服务器端。</li>
-<li>举例：客户端（浏览器）向服务器提交HTTP请求；服务器向客户端返回响应。响应包含关于请求的状态信息以及可能被请求的内容。<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3>请注意，查询字符串（名称/值对）是在 GET 请求的 URL 中发送的：<pre><code class="javascript">/test/demo_form.asp?name1=value1&amp;name2=value2
-</code></pre>
-</li>
-</ul>
+        <h1 id="简单学习-SLF4J-Logback"><a href="#简单学习-SLF4J-Logback" class="headerlink" title="简单学习 SLF4J+Logback"></a>简单学习 SLF4J+Logback</h1><h2 id="SLF4J简介"><a href="#SLF4J简介" class="headerlink" title="SLF4J简介"></a>SLF4J简介</h2><blockquote>
+<p>slf4j的全称是Simple Loging Facade For Java，即它仅仅是一个为Java程序提供日志输出的统一接口，并不是一个具体的日志实现方案，就比如JDBC一样，只是一种规则而已。所以单独的slf4j是不能工作的，必须搭配其他具体的日志实现方案。<br>slf4j只是一种接口，它本身并不关心你底层使用的是什么日志实现方案，所以它支持各种日志实现方案。简单的说，只要我们在类库中使用slf4j打日志，那么底层使用什么日志实现方案是使用者决定的，怎么决定？依靠配置文件和jar库。</p>
 </blockquote>
-<ul>
-<li>GET 请求可被缓存</li>
-<li>GET 请求保留在浏览器历史记录中</li>
-<li>GET 请求可被收藏为书签</li>
-<li>GET 请求不应在处理敏感数据时使用</li>
-<li>GET 请求有长度限制</li>
-<li>GET 请求只应当用于取回数据</li>
-<li><h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><blockquote>
-<p>请注意，查询字符串（名称/值对）是在 POST 请求的 HTTP 消息主体中发送的：</p>
-<pre><code class="javascript">POST /test/demo_form.asp HTTP/<span class="number">1.1</span>
-Host: w3schools.com
-name1=value1&amp;name2=value2
-</code></pre>
+<h2 id="SLF4J优势"><a href="#SLF4J优势" class="headerlink" title="SLF4J优势"></a>SLF4J优势</h2><p><strong>使用SLF4J的而不是直接使用 Log4j, commons logging, logback 或者 java.util.logging</strong></p>
+<blockquote>
+<p>1.在你的开源或内部类库中使用SLF4J会使得它独立于任何一个特定的日志实现，这意味着不需要管理多个日志配置或者多个日志类库，你的客户端会很感激这点。<br>2.SLF4J提供了基于占位符的日志方法，这通过去除检查isDebugEnabled(), isInfoEnabled()等等，提高了代码可读性。<br>3.通过使用SLF4J的日志方法，你可以延迟构建日志信息（Srting）的开销，直到你真正需要，这对于内存和CPU都是高效的。<br>4.作为附注，更少的暂时的字符串意味着垃圾回收器（Garbage Collector）需要做更好的工作，这意味着你的应用程序有为更好的吞吐量和性能。</p>
 </blockquote>
-</li>
-<li>POST 请求不会被缓存</li>
-<li>POST 请求不会保留在浏览器历史记录中</li>
-<li>POST 不能被收藏为书签</li>
-<li>GET POST 请求对数据长度没有要求</li>
+<h2 id="SLF4J-Logback配置"><a href="#SLF4J-Logback配置" class="headerlink" title="SLF4J+Logback配置"></a>SLF4J+Logback配置</h2><h3 id="pom-xml-配置"><a href="#pom-xml-配置" class="headerlink" title="pom.xml 配置"></a>pom.xml 配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.25<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="新建-logback-xml"><a href="#新建-logback-xml" class="headerlink" title="新建 logback.xml"></a>新建 logback.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">scan：当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。</span></span><br><span class="line"><span class="comment">scanPeriod：设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒当scan为true时，此属性生效。默认的时间间隔为1分钟。</span></span><br><span class="line"><span class="comment">debug：当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">scan</span>=<span class="string">"false"</span> <span class="attr">scanPeriod</span>=<span class="string">"60 seconds"</span> <span class="attr">debug</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 定义日志的根目录 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"LOG_HOME"</span> <span class="attr">value</span>=<span class="string">"F:\\javaPhotoTest\\log"</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 定义日志文件名称 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"appName"</span> <span class="attr">value</span>=<span class="string">"pan"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ch.qos.logback.core.ConsoleAppender 表示控制台输出 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"console"</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        日志输出格式：%d表示日期时间，%thread表示线程名，%-5level：级别从左显示5个字符宽度</span></span><br><span class="line"><span class="comment">        %logger&#123;50&#125; 表示logger名字最长50个字符，否则按照句点分割。 %msg：日志消息，%n是换行符</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.classic.PatternLayout"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [%thread] %-5level %logger&#123;50&#125; - %msg%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"file"</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.rolling.RollingFileAppender"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 指定日志文件的名称 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">file</span>&gt;</span>$&#123;LOG_HOME&#125;/$&#123;appName&#125;.log<span class="tag">&lt;/<span class="name">file</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        当发生滚动时，决定 RollingFileAppender 的行为，涉及文件移动和重命名</span></span><br><span class="line"><span class="comment">        TimeBasedRollingPolicy： 最常用的滚动策略，它根据时间来制定滚动策略，既负责滚动也负责出发滚动。</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">rollingPolicy</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.rolling.TimeBasedRollingPolicy"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">            滚动时产生的文件的存放位置及文件名称 %d&#123;yyyy-MM-dd&#125;：按天进行日志滚动</span></span><br><span class="line"><span class="comment">            %i：当文件大小超过maxFileSize时，按照i进行文件滚动</span></span><br><span class="line"><span class="comment">            --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">fileNamePattern</span>&gt;</span>$&#123;LOG_HOME&#125;/$&#123;appName&#125;-%d&#123;yyyy-MM-dd&#125;-%i.log<span class="tag">&lt;/<span class="name">fileNamePattern</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">            可选节点，控制保留的归档文件的最大数量，超出数量就删除旧文件。假设设置每天滚动，</span></span><br><span class="line"><span class="comment">            且maxHistory是365，则只保存最近365天的文件，删除之前的旧文件。注意，删除旧文件是，</span></span><br><span class="line"><span class="comment">            那些为了归档而创建的目录也会被删除。</span></span><br><span class="line"><span class="comment">            --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">MaxHistory</span>&gt;</span>365<span class="tag">&lt;/<span class="name">MaxHistory</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">            当日志文件超过maxFileSize指定的大小是，根据上面提到的%i进行日志文件滚动 注意此处配置SizeBasedTriggeringPolicy是无法实现按文件大小进行滚动的，必须配置timeBasedFileNamingAndTriggeringPolicy</span></span><br><span class="line"><span class="comment">            --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">timeBasedFileNamingAndTriggeringPolicy</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">maxFileSize</span>&gt;</span>100MB<span class="tag">&lt;/<span class="name">maxFileSize</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">timeBasedFileNamingAndTriggeringPolicy</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">rollingPolicy</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        日志输出格式：%d表示日期时间，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %logger&#123;50&#125; 表示logger名字最长50个字符，否则按照句点分割。 %msg：日志消息，%n是换行符</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.classic.PatternLayout"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [ %thread ] - [ %-5level ] [ %logger&#123;50&#125; : %line ] - %msg%n<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    logger主要用于存放日志对象，也可以定义日志类型、级别</span></span><br><span class="line"><span class="comment">    name：表示匹配的logger类型前缀，也就是包的前半部分</span></span><br><span class="line"><span class="comment">    level：要记录的日志级别，包括 TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR</span></span><br><span class="line"><span class="comment">    additivity：作用在于children-logger是否使用 rootLogger配置的appender进行输出，false：表示只用当前logger的appender-ref，true：表示当前logger的appender-ref和rootLogger的appender-ref都有效</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- hibernate logger --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;logger name="org.hibernate" level="error" /&gt;--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Spring framework logger --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">logger</span> <span class="attr">name</span>=<span class="string">"org.springframework"</span> <span class="attr">level</span>=<span class="string">"error"</span> <span class="attr">additivity</span>=<span class="string">"false"</span>&gt;</span><span class="tag">&lt;/<span class="name">logger</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">logger</span> <span class="attr">name</span>=<span class="string">"com.smile.dao"</span> <span class="attr">level</span>=<span class="string">"trace"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"file"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">logger</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    root与logger是父子关系，没有特别定义则默认为root，任何一个类只会和一个logger对应，</span></span><br><span class="line"><span class="comment">    要么是定义的logger，要么是root，判断的关键在于找到这个logger，然后判断这个logger的appender和level。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"console"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"file"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><p>关于<code>&lt;Encoding&gt;UTF-8&lt;/Encoding&gt;</code></p>
+<blockquote>
+<p>1.设置Encoding。在appender中增加一行<encoding>UTF-8</encoding>，但是在启动中报错，说是不能识别Encoding元素。有人说Encoding在0.9.22以后版本中已经不能用了。<br>2.设置charset, 在encoder 中增加一行 <charset>UTF-8</charset>，重新启动系统，日志中中文显示正常了。</p>
+</blockquote>
+<h3 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h3><p><strong>Why do we declare Loggers static final?</strong><br><strong>为什么要将日志记录定义为static以及final？</strong></p>
+<ul>
+<li><code>private</code> - so that no other class can hijack your logger</li>
+<li><code>static</code> - so there is only one logger instance per class, also avoiding attempts to serialize loggers</li>
+<li><code>final</code> - no need to change the logger over the lifetime of the class</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>…</th>
-<th>GET</th>
-<th>POST</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>后退按钮/刷新</td>
-<td>可收藏为书签</td>
-<td>不可收藏为书签</td>
-</tr>
-<tr>
-<td>书签</td>
-<td>能被缓存</td>
-<td>不能缓存</td>
-</tr>
-<tr>
-<td>编码类型</td>
-<td>application/x-www-form-urlencoded</td>
-<td>application/x-www-form-urlencoded 或 multipart/form-data。为二进制数据使用多重编码。</td>
-</tr>
-<tr>
-<td>历史</td>
-<td>参数保留在浏览器历史中</td>
-<td>参数不会保存在浏览器历史中</td>
-</tr>
-<tr>
-<td>对数据长度的限制</td>
-<td>是的。当发送数据时，GET 方法向 URL 添加数据；URL 的长度是受限制的（URL 的最大长度是 2048 个字符）。</td>
-<td>无限制。</td>
-</tr>
-<tr>
-<td>对数据类型的限制</td>
-<td>只允许 ASCII 字符。</td>
-<td>没有限制。也允许二进制数据。</td>
-</tr>
-<tr>
-<td>安全性</td>
-<td>与 POST 相比，GET 的安全性较差，因为所发送的数据是URL的一部分。在发送密码或其他敏感信息时绝不要使用 GET</td>
-<td>POST 比 GET 更安全，因为参数不会被保存在浏览器历史或 web 服务器日志中。</td>
-</tr>
-<tr>
-<td>可见性</td>
-<td>数据在 URL 中对所有人都是可见的。</td>
-<td>数据不会显示在 URL 中。</td>
-</tr>
-</tbody>
-</table>
 
       
     </div>
@@ -497,9 +435,7 @@ name1=value1&amp;name2=value2
       
         <div class="post-tags">
           
-            <a href="/tags/post/" <i class="fa fa-tag"></i> post</a>
-          
-            <a href="/tags/get/" <i class="fa fa-tag"></i> get</a>
+            <a href="/tags/spring/" <i class="fa fa-tag"></i> spring</a>
           
         </div>
       
@@ -512,15 +448,15 @@ name1=value1&amp;name2=value2
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/12/25/interceptor/" rel="next" title="Spring 拦截器">
+                <i class="fa fa-chevron-left"></i> Spring 拦截器
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/11/hexocommon/" rel="prev" title="Hexo常用命令">
-                Hexo常用命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -672,7 +608,7 @@ name1=value1&amp;name2=value2
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是-HTTP？"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4EC0;&#x4E48;&#x662F;-HTTP&#xFF1F;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F; HTTP&#xFF1F;"></a>&#x4EC0;&#x4E48;&#x662F; HTTP&#xFF1F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET"><span class="nav-number">2.</span> <span class="nav-text"><a href="#GET" class="headerlink" title="GET"></a>GET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST"><span class="nav-number">3.</span> <span class="nav-text"><a href="#POST" class="headerlink" title="POST"></a>POST</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简单学习-SLF4J-Logback"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x7B80;&#x5355;&#x5B66;&#x4E60;-SLF4J-Logback" class="headerlink" title="&#x7B80;&#x5355;&#x5B66;&#x4E60; SLF4J+Logback"></a>&#x7B80;&#x5355;&#x5B66;&#x4E60; SLF4J+Logback</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SLF4J简介"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#SLF4J&#x7B80;&#x4ECB;" class="headerlink" title="SLF4J&#x7B80;&#x4ECB;"></a>SLF4J&#x7B80;&#x4ECB;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SLF4J优势"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#SLF4J&#x4F18;&#x52BF;" class="headerlink" title="SLF4J&#x4F18;&#x52BF;"></a>SLF4J&#x4F18;&#x52BF;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SLF4J-Logback配置"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#SLF4J-Logback&#x914D;&#x7F6E;" class="headerlink" title="SLF4J+Logback&#x914D;&#x7F6E;"></a>SLF4J+Logback&#x914D;&#x7F6E;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pom-xml-配置"><span class="nav-number">1.3.1.</span> <span class="nav-text"><a href="#pom-xml-&#x914D;&#x7F6E;" class="headerlink" title="pom.xml &#x914D;&#x7F6E;"></a>pom.xml &#x914D;&#x7F6E;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建-logback-xml"><span class="nav-number">1.3.2.</span> <span class="nav-text"><a href="#&#x65B0;&#x5EFA;-logback-xml" class="headerlink" title="&#x65B0;&#x5EFA; logback.xml"></a>&#x65B0;&#x5EFA; logback.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#备注"><span class="nav-number">1.3.3.</span> <span class="nav-text"><a href="#&#x5907;&#x6CE8;" class="headerlink" title="&#x5907;&#x6CE8;"></a>&#x5907;&#x6CE8;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附加"><span class="nav-number">1.3.4.</span> <span class="nav-text"><a href="#&#x9644;&#x52A0;" class="headerlink" title="&#x9644;&#x52A0;"></a>&#x9644;&#x52A0;</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
