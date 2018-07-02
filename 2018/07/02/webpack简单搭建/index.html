@@ -71,7 +71,7 @@
 
 
 
-  <meta name="keywords" content="spring," />
+  <meta name="keywords" content="webpack," />
 
 
 
@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="概述 Web开发中，我们除了使用 Filter 来过滤web请求外，还可以使用Spring提供的HandlerInterceptor（拦截器）。HandlerInterceptor 的功能跟过滤器类似，但是提供更精细的的控制能力：在request被响应之前、request被响应之后、视图渲染之前以及request全部结束之后。我们不能通过拦截器修改request内容，但是可以通过抛出异常（或者返回">
-<meta name="keywords" content="spring">
+<meta name="description" content="Webpack4 简单搭建webpack简介本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。 四个核心概念：  入口(entry) 输出(outpu">
+<meta name="keywords" content="webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring 拦截器">
-<meta property="og:url" content="http://yoursite.com/2017/12/25/interceptor/index.html">
+<meta property="og:title" content="webpack简单搭建">
+<meta property="og:url" content="http://yoursite.com/2018/07/02/webpack简单搭建/index.html">
 <meta property="og:site_name" content="怪你过分美丽">
-<meta property="og:description" content="概述 Web开发中，我们除了使用 Filter 来过滤web请求外，还可以使用Spring提供的HandlerInterceptor（拦截器）。HandlerInterceptor 的功能跟过滤器类似，但是提供更精细的的控制能力：在request被响应之前、request被响应之后、视图渲染之前以及request全部结束之后。我们不能通过拦截器修改request内容，但是可以通过抛出异常（或者返回">
+<meta property="og:description" content="Webpack4 简单搭建webpack简介本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。 四个核心概念：  入口(entry) 输出(outpu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-25T11:18:22.000Z">
+<meta property="og:updated_time" content="2018-07-02T13:47:55.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring 拦截器">
-<meta name="twitter:description" content="概述 Web开发中，我们除了使用 Filter 来过滤web请求外，还可以使用Spring提供的HandlerInterceptor（拦截器）。HandlerInterceptor 的功能跟过滤器类似，但是提供更精细的的控制能力：在request被响应之前、request被响应之后、视图渲染之前以及request全部结束之后。我们不能通过拦截器修改request内容，但是可以通过抛出异常（或者返回">
+<meta name="twitter:title" content="webpack简单搭建">
+<meta name="twitter:description" content="Webpack4 简单搭建webpack简介本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。 四个核心概念：  入口(entry) 输出(outpu">
 
 
 
@@ -123,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/25/interceptor/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/02/webpack简单搭建/"/>
 
 
 
 
 
-  <title>Spring 拦截器 | 怪你过分美丽</title>
+  <title>webpack简单搭建 | 怪你过分美丽</title>
   
 
 
@@ -310,7 +310,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/25/interceptor/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/02/webpack简单搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Smile丶">
@@ -327,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring 拦截器</h1>
+          <h1 class="post-title" itemprop="name headline">webpack简单搭建</h1>
         
 
         <div class="post-meta">
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-25T16:45:17+08:00">
-                2017-12-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-02T21:47:04+08:00">
+                2018-07-02
               </time>
             
 
@@ -362,8 +362,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spring/" itemprop="url" rel="index">
-                    <span itemprop="name">spring</span>
+                  <a href="/categories/webpack/" itemprop="url" rel="index">
+                    <span itemprop="name">webpack</span>
                   </a>
                 </span>
 
@@ -399,16 +399,57 @@
       
 
       
-        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
-<p>Web开发中，我们除了使用 Filter 来过滤web请求外，还可以使用Spring提供的HandlerInterceptor（拦截器）。HandlerInterceptor 的功能跟过滤器类似，但是提供更精细的的控制能力：在request被响应之前、request被响应之后、视图渲染之前以及request全部结束之后。我们不能通过拦截器修改request内容，但是可以通过抛出异常（或者返回false）来暂停request的执行。</p>
+        <h1 id="Webpack4-简单搭建"><a href="#Webpack4-简单搭建" class="headerlink" title="Webpack4 简单搭建"></a>Webpack4 简单搭建</h1><h2 id="webpack简介"><a href="#webpack简介" class="headerlink" title="webpack简介"></a>webpack简介</h2><p>本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。</p>
+<p>四个核心概念：</p>
+<ul>
+<li>入口(entry)</li>
+<li>输出(output)</li>
+<li>loader</li>
+<li>插件(plugins)</li>
+</ul>
+<p>webpack中文网：<a href="https://webpack.docschina.org" target="_blank" rel="noopener">https://webpack.docschina.org</a></p>
+<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>npm 是JavaScript 世界的包管理工具，并且是Node.js 平台的默认包管理工具。通过npm 可以安装、共享、分发代码，管理项目依赖关系。</p>
+<p>npm中文网：<a href="https://www.npmjs.com.cn" target="_blank" rel="noopener">https://www.npmjs.com.cn</a></p>
+<h3 id="npm装包时的区别-D-S-g"><a href="#npm装包时的区别-D-S-g" class="headerlink" title="npm装包时的区别 -D -S -g"></a>npm装包时的区别 -D -S -g</h3><p>我们在使用npm install 安装模块或插件的时候，<br>有两种命令把他们写入到 package.json 文件里面去，比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```--save</span><br></pre></td></tr></table></figure></p>
+<p>在 package.json 文件里面提现出来的区别就是，使用 –save-dev 安装的 插件，被写入到devDependencies 对象里面去，而使用 –save 安装的插件，责被写入到 dependencies 对象里面去。<br>那 package.json 文件里面的 devDependencies  和 dependencies 对象有什么区别呢？<br>devDependencies  里面的插件只用于开发环境，不用于生产环境，而 dependencies  是需要发布到生产环境的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npm i module_name -S =&gt; npm install module_name --save 写入到 dependencies 对象  </span><br><span class="line">or</span><br><span class="line">npm i -S module_name </span><br><span class="line"></span><br><span class="line">npm i module_name -D ==&gt; npm install module_name --save-dev 写入到 devDependencies 对象 </span><br><span class="line">or</span><br><span class="line">npm i -D module_name </span><br><span class="line"></span><br><span class="line">npm i module_name -g 全局安装 </span><br><span class="line">i 是install 的简写</span><br></pre></td></tr></table></figure></p>
+<p>备注：详细信息可以用  <figure class="highlight plain"><figcaption><span>help install```  查看</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## webpack4 基础配置</span><br><span class="line"></span><br><span class="line">### 安装webpack、webpack-cli、webpack-dev-server</span><br><span class="line">- NPM初始化</span><br><span class="line">```npm init</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>本地局部安装webpack、webpack-cli<figure class="highlight plain"><figcaption><span>i webpack webpack-cli -D```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">安装成功后</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>“devDependencies”: {<br>“webpack”:  “^4.14.0”,<br>“webpack-cli”:  “^3.0.8”<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 本地局部安装webpack-dev-server</span><br><span class="line">```npm i webpack-dev-server -D</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;devDependencies&quot;: &#123;</span><br><span class="line">&quot;webpack&quot;:  &quot;^4.14.0&quot;,</span><br><span class="line">&quot;webpack-cli&quot;:  &quot;^3.0.8&quot;,</span><br><span class="line">&quot;webpack-dev-server&quot;:  &quot;^3.1.4&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>增加快速启动服务脚本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">&quot;test&quot;:  &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,</span><br><span class="line">&quot;dev&quot;:  &quot;webpack-dev-server --open --config webpack.config.js&quot;,</span><br><span class="line">&quot;build&quot;:  &quot;webpack --progress --hide-modules --config webpack.prod.config.js&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>备注： IP和端口是可以配置的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">&quot;dev&quot;:  &quot;webpack-dev-server --host 172.172.172.1 --port 8888 --open --config webpack.config.js&quot;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>webpack和webpack-dev-server区别<br>第一：<br>webpack只是构建<br>webpack-dev-server除了构建，还提供web服务<br>第二：webpack.config.json的路径参数<br>显然，entry都一样，因为都要知道需要构建的文件在哪里<br>那么区别就在于 output了<br>path和webpack一起，指明构建 之后 输出文件的位置，这是真实的物理地址</li>
+</ul>
+<p>publickPath和webpack-dev-server一起，当执行webpack-dev-server时，第一步首先跟webpack一样，先构建输出，然后提供web访问，该输出文件是在内存中</p>
+<p>默认情况下，不设置publicPath则输出文件默认在运行webpack-dev-server的目录，也就是根目录，，那么html中引用直接是src=”输出的文件”，，如果设置了publicPath那么html中引用也要相对改变</p>
+<p>总的来说，webpack只是构建，而webpack-dev-server相当于webpack+apache（或者其它web服务器）</p>
+<p>区别在于</p>
+<p>使用webpack+apache（或者其它服务器），每次构建之后，首先1 根据path引用构建后的输出文件；2 每次修改都要重新运行webpack</p>
+<p>使用webpack-dev-server，运行之后首先1 先构建，输出文件在内存中，引用构建后的输出文件根据publicPath（默认是根目录）；2 每次修改，自动刷新</p>
+<h3 id="webpack执行命令参数"><a href="#webpack执行命令参数" class="headerlink" title="webpack执行命令参数"></a>webpack执行命令参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">webpack --config XXX.js //使用另一份配置文件（比如webpack.prod.config.js）来打包</span><br><span class="line">webpack --watch //监听变动并自动打包</span><br><span class="line">webpack --colors 配置打包输出颜色显示</span><br><span class="line">webpack -p//压缩混淆脚本，这个非常非常重要！</span><br><span class="line">webpack -d//生成map映射文件，告知哪些模块被最终打包到哪里了其中的 </span><br><span class="line">webpack --progress //显示进度条</span><br><span class="line">webpack --color //添加颜色</span><br><span class="line">webpack --hide-modules //隐藏来自文件夹的模块</span><br></pre></td></tr></table></figure>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><h3 id="添加webpack-config-js配置文件"><a href="#添加webpack-config-js配置文件" class="headerlink" title="添加webpack.config.js配置文件"></a>添加webpack.config.js配置文件</h3><p>在webpack.config.js中进行入口和输出的配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var path =  require(&apos;path&apos;);</span><br><span class="line">var config = &#123;</span><br><span class="line">	entry: &#123;</span><br><span class="line">		main:  &apos;./main&apos;</span><br><span class="line">	&#125;,</span><br><span class="line">	output: &#123;</span><br><span class="line">		path: path.join(__dirname, &apos;./dist&apos;),</span><br><span class="line">		publicPath:  &apos;/dist/&apos;,</span><br><span class="line">		filename:  &apos;main.js&apos;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">module.exports  = config;</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用不同的加载器-Loaders-处理不同的模块"><a href="#使用不同的加载器-Loaders-处理不同的模块" class="headerlink" title="使用不同的加载器(Loaders)处理不同的模块"></a>使用不同的加载器(Loaders)处理不同的模块</h3><ul>
+<li>例如使用CSS样式：<figure class="highlight plain"><figcaption><span>i css-loader -D```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```npm i style-loader -D</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var config = &#123;</span><br><span class="line">	//...</span><br><span class="line">	module: &#123;</span><br><span class="line">			rules: [</span><br><span class="line">				&#123;</span><br><span class="line">					test:  /\.css$/,</span><br><span class="line">					use: [</span><br><span class="line">					&apos;style-loader&apos;,</span><br><span class="line">					&apos;css-loader&apos;</span><br><span class="line">					]</span><br><span class="line">				&#125;</span><br><span class="line">			]</span><br><span class="line">		&#125;</span><br><span class="line">&#125;;</span><br><span class="line">module.exports  = config;</span><br></pre></td></tr></table></figure>
+<h2 id="插件-Plugins"><a href="#插件-Plugins" class="headerlink" title="插件(Plugins)"></a>插件(Plugins)</h2><p>例如提取散落的CSS</p>
+<ul>
+<li>安装extract-text-webpack-plugin插件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i extract-text-webpack-plugin -D</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">var path =  require(&apos;path&apos;);</span><br><span class="line">var ExtractTextPlugin =  require(&apos;extract-text-webpack-plugin&apos;);</span><br><span class="line"></span><br><span class="line">var config = &#123;</span><br><span class="line">	entry: &#123;</span><br><span class="line">		main:  &apos;./main&apos;</span><br><span class="line">	&#125;,</span><br><span class="line">	output: &#123;</span><br><span class="line">		path: path.join(__dirname, &apos;./dist&apos;),</span><br><span class="line">		publicPath:  &apos;/dist/&apos;,</span><br><span class="line">		filename:  &apos;main.js&apos;</span><br><span class="line">	&#125;,</span><br><span class="line">	module: &#123;</span><br><span class="line">		rules: [</span><br><span class="line">			&#123;</span><br><span class="line">				test:  /\.css$/,</span><br><span class="line">				css: ExtractTextPlugin.extract(&#123;</span><br><span class="line">					use:  &apos;css-loader&apos;,</span><br><span class="line">					fallback:  &apos;style-loader&apos;</span><br><span class="line">				&#125;)</span><br><span class="line">			&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;,</span><br><span class="line">	plugins: [</span><br><span class="line">		new  ExtractTextPlugin(&quot;main.css&quot;)</span><br><span class="line">	]</span><br><span class="line">&#125;;</span><br><span class="line">module.exports  = config;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可能会遇到下面的错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Chunk.entrypoints: Use Chunks.groupsIterable and filter by instanceof Entrypoint instead</span><br></pre></td></tr></table></figure></p>
+<p>这个是由于版本的问题造成的，解决方法如下：<br> <code>npm install extract-text-webpack-plugin@next</code></p>
 </blockquote>
-<h2 id="实现自定义拦截器"><a href="#实现自定义拦截器" class="headerlink" title="实现自定义拦截器"></a>实现自定义拦截器</h2><h3 id="三步走："><a href="#三步走：" class="headerlink" title="三步走："></a>三步走：</h3><blockquote>
-<p> 1.创建我们自己的拦截器类并实现 HandlerInterceptor 接口。<br> 2.创建一个Java类继承WebMvcConfigurerAdapter，并重写 addInterceptors 方法。<br> 3.实例化我们自定义的拦截器，然后将对像手动添加到拦截器链中（在addInterceptors方法中添加）。</p>
-</blockquote>
-<h2 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h2><h3 id="登录状态拦截器"><a href="#登录状态拦截器" class="headerlink" title="登录状态拦截器"></a>登录状态拦截器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SessionInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在请求处理之前进行调用（Controller方法调用之前）</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object o)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(request.getRequestURI());</span><br><span class="line">        <span class="comment">//登录不做拦截</span></span><br><span class="line">        <span class="keyword">if</span>(request.getRequestURI().equals(<span class="string">"/user/login"</span>) || request.getRequestURI().equals(<span class="string">"/user/login_view"</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//验证session是否存在</span></span><br><span class="line">        Object obj = request.getSession().getAttribute(<span class="string">"_session_user"</span>);</span><br><span class="line">        <span class="keyword">if</span>(obj == <span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            response.sendRedirect(<span class="string">"/user/login_view"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//请求处理之后进行调用，但是在视图被渲染之前（Controller方法调用之后）</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在整个请求结束之后被调用，也就是在DispatcherServlet 渲染了对应的视图之后执行（主要是用于进行资源清理工作）</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterceptorConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addInterceptor(<span class="keyword">new</span> SessionInterceptor()).addPathPatterns(<span class="string">"/**"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="处理时间拦截器"><a href="#处理时间拦截器" class="headerlink" title="处理时间拦截器"></a>处理时间拦截器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChanelInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Logger logger = LoggerFactory.getLogger(ChanelInterceptor.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object o)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        logger.info(<span class="string">"============================拦截器启动=============================="</span>);</span><br><span class="line">        request.setAttribute(<span class="string">"starttime"</span>,System.currentTimeMillis());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        logger.info(<span class="string">"===========================执行处理完毕============================="</span>);</span><br><span class="line">        <span class="keyword">long</span> starttime = (<span class="keyword">long</span>) request.getAttribute(<span class="string">"starttime"</span>);</span><br><span class="line">        request.removeAttribute(<span class="string">"starttime"</span>);</span><br><span class="line">        <span class="keyword">long</span> endtime = System.currentTimeMillis();</span><br><span class="line">        logger.info(<span class="string">"============请求地址："</span>+request.getRequestURI()+<span class="string">"：处理时间：&#123;&#125;"</span>,(endtime-starttime)+<span class="string">"ms"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        logger.info(<span class="string">"============================拦截器关闭=============================="</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterceptorConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addInterceptor(<span class="keyword">new</span> ChanelInterceptor()).addPathPatterns(<span class="string">"/**"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -426,7 +467,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/spring/" <i class="fa fa-tag"></i> spring</a>
+            <a href="/tags/webpack/" <i class="fa fa-tag"></i> webpack</a>
           
         </div>
       
@@ -439,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/25/mappergenerator/" rel="next" title="MyBatis-generator">
-                <i class="fa fa-chevron-left"></i> MyBatis-generator
+              <a href="/2018/05/28/java生成PDF/" rel="next" title="java生成PDF">
+                <i class="fa fa-chevron-left"></i> java生成PDF
               </a>
             
           </div>
@@ -448,10 +489,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/25/logback/" rel="prev" title="Spring Boot日志管理">
-                Spring Boot日志管理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -603,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x6982;&#x8FF0;" class="headerlink" title="&#x6982;&#x8FF0;"></a>&#x6982;&#x8FF0;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现自定义拦截器"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;&#x62E6;&#x622A;&#x5668;" class="headerlink" title="&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;&#x62E6;&#x622A;&#x5668;"></a>&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;&#x62E6;&#x622A;&#x5668;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三步走："><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x4E09;&#x6B65;&#x8D70;&#xFF1A;" class="headerlink" title="&#x4E09;&#x6B65;&#x8D70;&#xFF1A;"></a>&#x4E09;&#x6B65;&#x8D70;&#xFF1A;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x6837;&#x4F8B;" class="headerlink" title="&#x6837;&#x4F8B;"></a>&#x6837;&#x4F8B;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#登录状态拦截器"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#&#x767B;&#x5F55;&#x72B6;&#x6001;&#x62E6;&#x622A;&#x5668;" class="headerlink" title="&#x767B;&#x5F55;&#x72B6;&#x6001;&#x62E6;&#x622A;&#x5668;"></a>&#x767B;&#x5F55;&#x72B6;&#x6001;&#x62E6;&#x622A;&#x5668;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理时间拦截器"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#&#x5904;&#x7406;&#x65F6;&#x95F4;&#x62E6;&#x622A;&#x5668;" class="headerlink" title="&#x5904;&#x7406;&#x65F6;&#x95F4;&#x62E6;&#x622A;&#x5668;"></a>&#x5904;&#x7406;&#x65F6;&#x95F4;&#x62E6;&#x622A;&#x5668;</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Webpack4-简单搭建"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Webpack4-&#x7B80;&#x5355;&#x642D;&#x5EFA;" class="headerlink" title="Webpack4 &#x7B80;&#x5355;&#x642D;&#x5EFA;"></a>Webpack4 &#x7B80;&#x5355;&#x642D;&#x5EFA;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack简介"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#webpack&#x7B80;&#x4ECB;" class="headerlink" title="webpack&#x7B80;&#x4ECB;"></a>webpack&#x7B80;&#x4ECB;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#npm" class="headerlink" title="npm"></a>npm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.2.1.</span> <span class="nav-text"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;"></a>&#x7B80;&#x4ECB;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#npm装包时的区别-D-S-g"><span class="nav-number">1.2.2.</span> <span class="nav-text"><a href="#npm&#x88C5;&#x5305;&#x65F6;&#x7684;&#x533A;&#x522B;-D-S-g" class="headerlink" title="npm&#x88C5;&#x5305;&#x65F6;&#x7684;&#x533A;&#x522B; -D -S -g"></a>npm&#x88C5;&#x5305;&#x65F6;&#x7684;&#x533A;&#x522B; -D -S -g</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack执行命令参数"><span class="nav-number">1.2.3.</span> <span class="nav-text"><a href="#webpack&#x6267;&#x884C;&#x547D;&#x4EE4;&#x53C2;&#x6570;" class="headerlink" title="webpack&#x6267;&#x884C;&#x547D;&#x4EE4;&#x53C2;&#x6570;"></a>webpack&#x6267;&#x884C;&#x547D;&#x4EE4;&#x53C2;&#x6570;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加webpack-config-js配置文件"><span class="nav-number">1.3.1.</span> <span class="nav-text"><a href="#&#x6DFB;&#x52A0;webpack-config-js&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x6DFB;&#x52A0;webpack.config.js&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x6DFB;&#x52A0;webpack.config.js&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用不同的加载器-Loaders-处理不同的模块"><span class="nav-number">1.3.2.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x52A0;&#x8F7D;&#x5668;-Loaders-&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;" class="headerlink" title="&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x52A0;&#x8F7D;&#x5668;(Loaders)&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;"></a>&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x52A0;&#x8F7D;&#x5668;(Loaders)&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件-Plugins"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#&#x63D2;&#x4EF6;-Plugins" class="headerlink" title="&#x63D2;&#x4EF6;(Plugins)"></a>&#x63D2;&#x4EF6;(Plugins)</span></a></li></ol></li></ol></div>
             
 
           </div>
