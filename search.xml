@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[防抖与节流]]></title>
+    <url>%2F2019%2F02%2F27%2F%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81%2F</url>
+    <content type="text"><![CDATA[问题引入 如果窗口滚动会产生一个事件，那么鼠标滚轮一滑动，便会产生大量滚动事件，造成页面出现卡顿，如何优化？（函数防抖） 如果用户在表单提交页面疯狂点击提交按钮，会造成大量请求发往后台，如何防止多次提交？（函数节流） 函数防抖函数在事件触发n秒后执行，如果在这n秒内事件被再次触发，那么重新计时 123456789101112var demo2 = document.getElementById('debounce');demo2.addEventListener('scroll',debounce(fn2,500));function debounce(fn,wait) &#123; let timer = null; return function() &#123; if (timer) clearTimeout(timer) timer = setTimeout(fn,wait); &#125;&#125;function fn2() &#123; console.log('防抖');&#125; 函数节流函数被某事件触发后，n秒内只执行一次，如果在这n秒内再次触发，什么也不执行 1234567891011121314151617181920212223242526272829303132// 时间戳版var demo3 = document.getElementById('throttle');demo3.addEventListener('scroll',throttle(fn3,500));function throttle(fn,wait) &#123; let pre = 0; return function()&#123; let now = new Date(); if (now - pre &gt; wait) &#123; pre = new Date(); fn3(); &#125; &#125;&#125;function fn3() &#123; console.log('节流');&#125;// 定时器版var demo3 = document.getElementById('throttle');var canRun = true;demo3.addEventListener('scroll',throttle(fn3,500));function throttle(fn,wait) &#123; return function()&#123; if (!canRun) return; canRun = false; setTimeout(fn,wait); &#125;&#125;function fn3() &#123; console.log('节流'); canRun = true;&#125; 参考文章 防抖和节流 轻松理解JS函数节流和函数防抖 7分钟理解JS的节流、防抖及使用场景]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[闭包]]></title>
     <url>%2F2019%2F02%2F26%2F%E9%97%AD%E5%8C%85%2F</url>
     <content type="text"><![CDATA[概念闭包 – 函数和声明该函数的词法环境的组合。 最简单的闭包： 12345678function A()&#123; function B()&#123; console.log('pyt'); &#125; return B;&#125;var C = A();C();// pyt 简单翻译一下这个函数：函数A的内部函数B被函数A外的一个变量C引用。 通俗一点理解：当一个内部函数被其外部函数之外的变量引用时，就形成了一个闭包。 闭包大都返回一个函数，函数可以提供一个执行环境，在这个环境中引用其它环境的变量对象时，后者不会被js内部回收机制清除掉。 实例分析123456789101112131415function fun(n,o) &#123; console.log(o); return &#123; fun:function(m)&#123; return fun(m,n); &#125; &#125;;&#125;// firstvar a = fun(0); a.fun(1); a.fun(2); a.fun(3);//undefined,?,?,?// secondvar b = fun(0).fun(1).fun(2).fun(3);//undefined,?,?,?// thirdvar c = fun(0).fun(1); c.fun(2); c.fun(3);//undefined,?,?,? 分析：first: 首先执行 a = fun(0) ,然后三次计算a.fun(1); a.fun(2); a.fun(3); 这三步并不是链式的，在第一次调用fun(0)后，得到：12345&#123; fun:function(m)&#123; return fun(m,n) &#125;&#125; 执行a.fun(1)，m = 1, n = 0 , 得到 fun(1,0), 打印出 0执行a.fun(2)，m = 2, n = 0 , 得到 fun(2,0), 打印出 0执行a.fun(3)，m = 3, n = 0 , 得到 fun(3,0), 打印出 0所以输出 undefined,0,0,0 second: 这个是链式调用，首先执行了 fun(0),得到：12345&#123; fun:function(m)&#123; return fun(m,0) &#125;&#125; 输出 undefined,再接着调用 .fun(1),返回：fun(1,0),输出 0,再调用 .fun(2),返回 fun(2,1),输出 1,再调用 .fun(3),返回 fun(3,2),输出 2最终输出 undefined,0,1,2 third: 首先执行 fun(0).fun(1),返回 fun(1,0),输出 undefined,0,后面两个不是链式的,所以执行 c.fun(2),返回 fun(2,1),输出 1,执行 c.fun(3),返回fun(3,1),输出 1最终输出 undefined,0,1,1 小结在 Javascript 中，如果一个对象不再被引用，那么这个对象就会被 GC 回收，否则这个对象一直会保存在内存中。 123456789101112function A() &#123; var count = 0; function B() &#123; count ++; console.log(count); &#125; return B;&#125;var C = A();C();// 1C();// 2C();// 3 因为定义了C，所以A中的count会一直保存在内存中, C每调用一次，B就会执行一次，count就会累加一次。 参考文章 JavaScript闭包 深入贯彻闭包思想，全面理解JS闭包形成过程 让你分分钟理解 JavaScript 闭包]]></content>
