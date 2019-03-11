@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[HTML知识点总结]]></title>
+    <url>%2F2019%2F03%2F11%2FHTML%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[什么是 DOCTYPEDOCTYPE是一种标准通用标记语言的文档类型声明，目标是告诉标准通用标记语言解析器要使用什么样的文档类型定义(DTD)来解析文档。 &lt;!DOCTYPE&gt; 声明是用来指示web浏览器用哪个HTML版本来解析该页面。 为了能够很好地显示满足标准的页面，又能最大程度兼容不合法的HTML。 浏览器厂商一般会提供两种浏览器模式： 标准模式（standards mode）：浏览器根据标准规约来渲染页面。 混杂模式（quirks mode）：浏览器采用更加宽松的、向后兼容的方式来渲染页面。 HTML5 新标签常见的H5新标签： &lt;section&gt; 定义文档中的一个章节。 &lt;nav&gt; 定义只包含导航链接的章节。 &lt;article&gt; 定义可以独立于内容其余部分的完整独立内容块。 &lt;aside&gt; 定义和页面内容关联度较低的内容——如果被删除，剩下的内容仍然很合理。 &lt;header&gt; 定义页面或章节的头部。 &lt;footer&gt; 定义页面或章节的尾部。 &lt;main&gt; 定义文档中主要或重要的内容。 &lt;time&gt; 代表日期和时间值。 &lt;mark&gt; 代表一段需要被高亮的引用文字。 &lt;vidio&gt; 代表一段视频 及其视频文件和字幕，并提供了播放视频的用户界面。 &lt;audio&gt; 代表一段声音 ，或音频流 。 &lt;canvas&gt; 代表位图区域 ，可以通过脚本在它上面实时呈现图形，如图表、游戏绘图等。 &lt;svg&gt; 定义一个嵌入式矢量图 。 &lt;math&gt; 定义一段数学公式 。 块级元素和行内元素常见块级元素(block element)：div p form table h1-h6 ol ul li blockquote address等常见行内元素(inline element)：a span img code input lable select strong等空元素(empty element)：area br col img input link meta等 块级元素（display:block）： 独占一行，默认宽度为父级宽度的100%； 可以设置宽度和高度； 可以设置 margin 、padding； 行内元素（display:inline）： 不会独占一行，相邻行内元素排在同一行； 不可以设置宽度和高度，宽度随内容变化； 仅可以设置 margin左右、padding左右，上下无效； inline-block属性： 可以通过设置display:inline-block。既具有 block 元素可以设置宽高的特性，同时又具有 inline 元素默认不换行的特性。使用inline-block 会产生元素间的空隙。 HTML语义化 让正确的标签做正确的事情； 在没有CSS样式的情况下，页面依旧以文档的形式展示，便于阅读； 搜索引擎的爬虫依赖于HTML的标签来确定上下文和各个关键字权重，利于SEO； 让阅读源码的人更好的划分网站结构，利于阅读和维护。]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>web前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[前端性能优化]]></title>
     <url>%2F2019%2F03%2F07%2F%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%2F</url>
     <content type="text"><![CDATA[前端性能指标 白屏时间 (用户从打开页面开始到有页面开始呈现为止。) 首屏时间 (打开网站开始，到浏览器首屏内容渲染完成。) 用户可操作时间 (用户可以进行正常的事件输入交互操作。) 页面总下载时间 (整个网页加载完成的总时间。) 性能优化方案 减少请求数 合并部分请求、脚本以及样式表 考虑CSS Sprites 减小资源体积 压缩代码(html/css/js)，图片优化(包括压缩以及格式考虑(是否支持Webp)) 开启Gzip 资源利用 静态资源CDN (如BootCDN) 浏览器缓存 (学习资料：https://segmentfault.com/a/1190000018340722 ) 页面结构 样式表放在顶部，脚本放在底部 减少CSS表达式 模块按需加载 减少重绘回流 缓存DOM，在内存中操作DOM(使用DocumentFragment对象)]]></content>
