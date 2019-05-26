@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="概念闭包 – 函数和声明该函数的词法环境的组合。 最简单的闭包： 12345678function A()&amp;#123;    function B()&amp;#123;       console.log(&apos;pyt&apos;);    &amp;#125;    return B;&amp;#125;var C = A();C();// pyt 简单翻译一下这个函数：函数A的内部函数B被函数A外的一个变量C引用。 通俗一点理解">
+<meta name="description" content="词法作用域词法作用域，是指一个变量在源码中声明的位置作为它的作用域。同时嵌套的函数可以访问到其外层作用域中声明的变量。 概念闭包 – 函数和声明该函数的词法环境的组合。 最简单的闭包： 12345678function A()&amp;#123;    function B()&amp;#123;       console.log(&apos;pyt&apos;);    &amp;#125;    return B;&amp;#125;var">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="闭包">
 <meta property="og:url" content="http://yoursite.com/2019/02/26/闭包/index.html">
 <meta property="og:site_name" content="怪你过分美丽">
-<meta property="og:description" content="概念闭包 – 函数和声明该函数的词法环境的组合。 最简单的闭包： 12345678function A()&amp;#123;    function B()&amp;#123;       console.log(&apos;pyt&apos;);    &amp;#125;    return B;&amp;#125;var C = A();C();// pyt 简单翻译一下这个函数：函数A的内部函数B被函数A外的一个变量C引用。 通俗一点理解">
+<meta property="og:description" content="词法作用域词法作用域，是指一个变量在源码中声明的位置作为它的作用域。同时嵌套的函数可以访问到其外层作用域中声明的变量。 概念闭包 – 函数和声明该函数的词法环境的组合。 最简单的闭包： 12345678function A()&amp;#123;    function B()&amp;#123;       console.log(&apos;pyt&apos;);    &amp;#125;    return B;&amp;#125;var">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-26T12:39:07.632Z">
+<meta property="og:updated_time" content="2019-05-26T13:46:49.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闭包">
-<meta name="twitter:description" content="概念闭包 – 函数和声明该函数的词法环境的组合。 最简单的闭包： 12345678function A()&amp;#123;    function B()&amp;#123;       console.log(&apos;pyt&apos;);    &amp;#125;    return B;&amp;#125;var C = A();C();// pyt 简单翻译一下这个函数：函数A的内部函数B被函数A外的一个变量C引用。 通俗一点理解">
+<meta name="twitter:description" content="词法作用域词法作用域，是指一个变量在源码中声明的位置作为它的作用域。同时嵌套的函数可以访问到其外层作用域中声明的变量。 概念闭包 – 函数和声明该函数的词法环境的组合。 最简单的闭包： 12345678function A()&amp;#123;    function B()&amp;#123;       console.log(&apos;pyt&apos;);    &amp;#125;    return B;&amp;#125;var">
 
 
 
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  630 字
+                  847 字
                 </span>
               
 
@@ -420,7 +420,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2 分钟
+                  3 分钟
                 </span>
               
             </div>
@@ -441,12 +441,25 @@
       
 
       
-        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p><strong>闭包 – 函数和声明该函数的词法环境的组合。</strong></p>
+        <h1 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h1><p>词法作用域，是指一个变量在源码中声明的位置作为它的作用域。同时嵌套的函数可以访问到其外层作用域中声明的变量。</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p><strong>闭包 – 函数和声明该函数的词法环境的组合。</strong></p>
 <p>最简单的闭包：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'pyt'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> B;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> C = A();</span><br><span class="line">C();<span class="comment">// pyt</span></span><br></pre></td></tr></table></figure>
 <p>简单翻译一下这个函数：<br><strong>函数A的内部函数B被函数A外的一个变量C引用。</strong></p>
 <p>通俗一点理解：<br><strong>当一个内部函数被其外部函数之外的变量引用时，就形成了一个闭包。</strong></p>
 <p>闭包大都返回一个函数，函数可以提供一个执行环境，在这个环境中引用其它环境的变量对象时，后者不会被js内部回收机制清除掉。</p>
+<h1 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h1><ul>
+<li>防抖函数（用闭包实现）</li>
+<li>设置私有变量<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> makeCounter = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> privateCounter = <span class="number">0</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">changeBy</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">    privateCounter += val;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    increment: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      changeBy(<span class="number">1</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    decrement: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      changeBy(<span class="number">-1</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    value: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> privateCounter;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> counter1 = makeCounter();</span><br><span class="line"><span class="keyword">var</span> counter2 = makeCounter();</span><br><span class="line">alert(counter1.value()); <span class="comment">/* Alerts 0 */</span></span><br><span class="line">counter1.increment();</span><br><span class="line">counter1.increment();</span><br><span class="line">alert(counter1.value()); <span class="comment">/* Alerts 2 */</span></span><br><span class="line">counter1.decrement();</span><br><span class="line">alert(counter1.value()); <span class="comment">/* Alerts 1 */</span></span><br><span class="line">alert(counter2.value()); <span class="comment">/* Alerts 0 */</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>这样使用闭包可以提供很多面向对象编程里的好处，比如数据隐藏和封装。</p>
+<ul>
+<li>获取真正的值<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">(<span class="function">(<span class="params">j</span>)=&gt;</span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(j)<span class="comment">//0-9</span></span><br><span class="line">    &#125;,<span class="number">1000</span>)&#125;)(i)</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
 <h1 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">n,o</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(o);</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    fun:<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> fun(m,n);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// first</span></span><br><span class="line"><span class="keyword">var</span> a = fun(<span class="number">0</span>); a.fun(<span class="number">1</span>); a.fun(<span class="number">2</span>); a.fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,?</span></span><br><span class="line"><span class="comment">// second</span></span><br><span class="line"><span class="keyword">var</span> b = fun(<span class="number">0</span>).fun(<span class="number">1</span>).fun(<span class="number">2</span>).fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,?</span></span><br><span class="line"><span class="comment">// third</span></span><br><span class="line"><span class="keyword">var</span> c = fun(<span class="number">0</span>).fun(<span class="number">1</span>); c.fun(<span class="number">2</span>); c.fun(<span class="number">3</span>);<span class="comment">//undefined,?,?,?</span></span><br></pre></td></tr></table></figure>
 <p>分析：<br>first: 首先执行 <code>a = fun(0)</code> ,然后三次计算<code>a.fun(1)</code>; <code>a.fun(2)</code>; <code>a.fun(3)</code>; 这三步并不是链式的，在第一次调用<code>fun(0)</code>后，得到：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  fun:<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fun(m,n)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>执行<code>a.fun(1)</code>，<code>m = 1, n = 0</code> , 得到 <code>fun(1,0)</code>, 打印出 <code>0</code><br>执行<code>a.fun(2)</code>，<code>m = 2, n = 0</code> , 得到 <code>fun(2,0)</code>, 打印出 <code>0</code><br>执行<code>a.fun(3)</code>，<code>m = 3, n = 0</code> , 得到 <code>fun(3,0)</code>, 打印出 <code>0</code><br>所以输出 <code>undefined,0,0,0</code></p>
@@ -460,6 +473,7 @@
 <li><a href="https://imweb.io/topic/566567e4d91952db73b41f5d" target="_blank" rel="noopener">JavaScript闭包</a></li>
 <li><a href="https://segmentfault.com/a/1190000009886713" target="_blank" rel="noopener">深入贯彻闭包思想，全面理解JS闭包形成过程</a></li>
 <li><a href="https://www.cnblogs.com/onepixel/p/5062456.html" target="_blank" rel="noopener">让你分分钟理解 JavaScript 闭包</a></li>
+<li><a href="https://juejin.im/entry/58f424d5570c3500563d7541" target="_blank" rel="noopener">说说 JavaScript 的闭包用于什么场景</a></li>
 </ul>
 
       
@@ -655,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x6982;&#x5FF5;" class="headerlink" title="&#x6982;&#x5FF5;"></a>&#x6982;&#x5FF5;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例分析"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x5B9E;&#x4F8B;&#x5206;&#x6790;" class="headerlink" title="&#x5B9E;&#x4F8B;&#x5206;&#x6790;"></a>&#x5B9E;&#x4F8B;&#x5206;&#x6790;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x5C0F;&#x7ED3;" class="headerlink" title="&#x5C0F;&#x7ED3;"></a>&#x5C0F;&#x7ED3;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x53C2;&#x8003;&#x6587;&#x7AE0;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x7AE0;"></a>&#x53C2;&#x8003;&#x6587;&#x7AE0;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#词法作用域"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;"></a>&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x6982;&#x5FF5;" class="headerlink" title="&#x6982;&#x5FF5;"></a>&#x6982;&#x5FF5;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用场景"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;&#x573A;&#x666F;" class="headerlink" title="&#x4F7F;&#x7528;&#x573A;&#x666F;"></a>&#x4F7F;&#x7528;&#x573A;&#x666F;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例分析"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x5B9E;&#x4F8B;&#x5206;&#x6790;" class="headerlink" title="&#x5B9E;&#x4F8B;&#x5206;&#x6790;"></a>&#x5B9E;&#x4F8B;&#x5206;&#x6790;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x5C0F;&#x7ED3;" class="headerlink" title="&#x5C0F;&#x7ED3;"></a>&#x5C0F;&#x7ED3;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-number">6.</span> <span class="nav-text"><a href="#&#x53C2;&#x8003;&#x6587;&#x7AE0;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x7AE0;"></a>&#x53C2;&#x8003;&#x6587;&#x7AE0;</span></a></li></ol></div>
             
 
           </div>
